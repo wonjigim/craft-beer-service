@@ -18,7 +18,7 @@ public interface LoginService {
     //public MemberVO loginChk(MemberVO member);
 
 	//회원가입 테스트(회원가입에 필요한 VO 클래스 필드를 가져와야 함 따라서, 등록된 VO 클래스 객체를 명시)
-	public void register(MemberVO member) throws Exception;
+//	public void register(MemberVO member) throws Exception;
 
 	//public int idCheck(String userId);
 }

@@ -179,7 +179,7 @@
 					</li><!-- / Search -->
 
 					<!-- 로그인페이지 -->
-					<li><a href="${contextPath }/member/login"><i class="fa-solid fa-user" style="font-size : 12px;"></i>&nbsp;로그인</a></li>
+					<li><a href="${contextPath }/member/"><i class="fa-solid fa-user" style="font-size : 12px;"></i>&nbsp;로그인</a></li>
 					
 					
 					

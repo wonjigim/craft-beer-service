@@ -2,6 +2,7 @@ package com.spring5.proj22.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.ui.Model;
 
 import com.spring5.proj22.domain.MemberVO;
 import com.spring5.proj22.mapper.LoginMapper;
@@ -13,14 +14,26 @@ import lombok.Setter;
 @Getter
 @Setter
 public class LoginServiceImpl implements LoginService{
-
-	@Setter(onMethod_ = {@Autowired})
+	
+	@Autowired(required=false)
 	private LoginMapper loginMapper;
 	
-	@Override
-	public void register(MemberVO member) throws Exception {
-		loginMapper.signup(member);
+	public void getMember(Model model) throws Exception {
+		MemberVO memberVO = new MemberVO();
+		memberVO.setUserId(model.getAttribute("userId").toString());
+		memberVO.setUserPw(model.getAttribute("userPw").toString());
+		
+		MemberVO result = loginMapper.getMember(memberVO);
+		String name = "hh";
 	}
+
+//	@Setter(onMethod_ = {@Autowired})
+//	private LoginMapper loginMapper;
+//	
+//	@Override
+//	public void register(MemberVO member) throws Exception {
+//		loginMapper.signup(member);
+//	}
 
 	
 

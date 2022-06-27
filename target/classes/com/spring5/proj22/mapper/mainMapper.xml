@@ -13,7 +13,7 @@
 <!--  Values() = 각 컬럼의 행을 추가 -->
 
 
-	<select id="login" resultType="com.spring5.proj22.domain.MemberVO">
+	<select id="getMember" resultType="com.spring5.proj22.domain.MemberVO">
 		SELECT userId, userPw 
 		FROM web_manager.member
 		WHERE userId = #{userId} AND userPw = #{userPw}   

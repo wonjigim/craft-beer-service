@@ -60,15 +60,16 @@
 			alert("비밀번호를 입력하세요");
 			return false;
 		} else {
-			alert("로그인 성공!");
+			//alert("로그인 테스트");
+			var frmLogin = $("#frmLogin");
+			<%-- form의 속성 추가 --%>
+			frmLogin.attr("method","get"); //메서드 속성은 post로 URL(주소)에 값을 안 보이게
+			frmLogin.attr("action","${contextPath}/member/login"); //값을 보낼 경로
+			frmLogin.submit();//전송
+			
 		} 
 		 
-		//alert("로그인 테스트");
-		var frmLogin = $("#frmLogin");
-		<%-- form의 속성 추가 --%>
-		frmLogin.attr("method","get"); //메서드 속성은 post로 URL(주소)에 값을 안 보이게
-		frmLogin.attr("action","${contextPath}/"); //값을 보낼 경로
-		frmLogin.submit(); //전송
+		
 	});
 </script>
 </body>
