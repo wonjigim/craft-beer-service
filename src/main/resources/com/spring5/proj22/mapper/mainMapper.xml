@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ 
+<!-- mapper namespace는 매퍼 구성파일(mapper.xml)의 패키지 포함한 구성파일 이름을 지정 해 주어야 한다  -->
+ <mapper namespace="com.spring5.proj22.mapper.LoginMapper">
+
+<!--  매퍼 인터페이스의 메서드 이름과 매퍼 구성파일(mapper.xml)의 각 요소의 Id 속성명은 동일 해야 한다 -->
+<!--  매퍼 SQL 작성 시 " ; " 는 없어야하며, 값을 가져와야 하는 경우 "#{}" 으로 VO의 필드명을 불러와 DB에 처리된다 -->
+<!--  Select = 조회 | 조회 할 컬럼들을 명시한다 -->
+<!--  From = DB계정명.테이블명 -->
+<!--  Insert Into = 행 추가 | DB계정명.테이블명 -->
+<!--  Values() = 각 컬럼의 행을 추가 -->
+
+
+	<select id="login" resultType="com.spring5.proj22.domain.MemberVO">
+		SELECT userId, userPw 
+		FROM web_manager.member
+		WHERE userId = #{userId} AND userPw = #{userPw}   
+	</select>
+	
+    <insert id="signup" parameterType="com.spring5.proj22.domain.MemberVO">
+	    INSERT INTO web_manager.member
+		VALUES(#{userId},#{userPw},#{userName},#{userNickname},DEFAULT,DEFAULT,#{userPhonenum},#{userAddress},#{userZipCode})
+    </insert>
+    
+<!--     <select id="signup">
+		insert into web_manager.member(userId,userPw)
+		values (#{userId},#{userPw})
+	</select> -->
+	
+	
+	
+	<select id="signView">
+		SELECT * FROM web_manager.member
+	</select>
+	
+	
+	<select id="loginCheck" resultType="int">
+		<![CDATA[
+			SELECT count(*) FROM web_manager.member
+			WHERE userId = #{userId} AND userPw = #{userPw}
+		]]>
+	</select>
+	
+	<select id="idCheck" resultType="int">
+		<![CDATA[
+			SELECT count(*) FROM web_manager.member
+			WHERE userId = #{userId}
+		]]>
+	</select>
+	
+	
+	
+	
+ </mapper>
